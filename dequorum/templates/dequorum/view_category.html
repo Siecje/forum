@@ -1,0 +1,15 @@
+{% extends '_layouts/dequorum_base.html' %}
+
+{% block breadcrumbs %}
+ <a href="{% url 'forum_index' %}">Forum Index</a>
+{% endblock breadcrumbs %}
+
+{% block forum_content %}
+    <h3>{{ category }}</h3>
+
+    <table>
+    {% for forum in forums %}
+        <tr><td><a href="{{ forum.get_absolute_url }}">{{ forum }}</a></td></tr>
+    {% endfor %}
+    </table>
+{% endblock forum_content %}

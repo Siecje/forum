@@ -20,6 +20,14 @@ def register(request):
 
 
 def login(request):
+    # Redirect to profile if already logged into forum
+    #TODO: remove try
+    try:
+        if request.user.profile is None:
+            return HttpResponseRedirect(reverse('forum_profile'))
+    except:
+        pass
+
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -73,7 +81,7 @@ def create_thread(request, forum_id):
             new_post = post_form.save(commit=False)
             new_post.subject = new_thread.subject
             new_post.thread = new_thread
-            new_post.author = request.user
+            new_post.author = request.user.profile
             new_post.save()
             return HttpResponseRedirect(reverse('view_thread', args=(new_thread.id,)))
     return render(request, 'dequorum/create_thread.html',

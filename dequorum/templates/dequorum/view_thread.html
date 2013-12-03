@@ -1,6 +1,8 @@
-{% extends '_layouts/base.html' %}
+{% extends '_layouts/dequorum_base.html' %}
 
-{% block content %}
+
+
+{% block forum_content %}
     <h3>{{ thread }}</h3>
     <table>
     {% for post in posts %}
@@ -9,4 +11,4 @@
         <tr><td>{{ post.author }</td></tr>
     {% endfor %}
     </table>
-{% endblock content %}
+{% endblock forum_content %}

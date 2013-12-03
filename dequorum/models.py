@@ -105,7 +105,7 @@ class ProfileManager(models.Manager):
         return super(ProfileManager, self).get_queryset().select_related('user')
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
     nickname = fields.TitleField(blank=True)
 
     avatar = models.ImageField(blank=True, upload_to='avatars')
