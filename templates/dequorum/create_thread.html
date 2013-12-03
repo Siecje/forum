@@ -1,0 +1,15 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+    <h2>Create Topic</h2>
+    <table>
+        <form method="POST">
+            {% csrf_token %}
+            {{ thread_form.as_table }}
+            {{ post_form.as_table }}
+            <tr>
+                <td><input type="submit" value="Create Topic"></td>
+            </tr>
+        </form>
+    </table>
+{% endblock %}

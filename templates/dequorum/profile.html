@@ -1,0 +1,8 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+    <h3>Profile</h3>
+    {% for post in posts %}
+        <a href="{{ post.thread.get_absolute_url }}">{{ post }}</a>
+    {% endfor %}
+{% endblock %}

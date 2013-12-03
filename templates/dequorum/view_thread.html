@@ -1,0 +1,12 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+    <h3>{{ thread }}</h3>
+    <table>
+    {% for post in posts %}
+        <tr><td>{{ post.subject }</td></tr>
+        <tr><td>{{ post.content }</td></tr>
+        <tr><td>{{ post.author }</td></tr>
+    {% endfor %}
+    </table>
+{% endblock content %}

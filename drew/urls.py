@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'drew.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.home, name='home'),
-
+    url(r'^forum/', include('dequorum.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
